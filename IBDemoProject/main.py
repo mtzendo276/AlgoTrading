@@ -14,7 +14,7 @@ class TradingApp(EWrapper, EClient):
     def __init__(self):
         EClient.__init__(self, self)
 
-    def error(self, reqId, errorCode, errorString):
+    def error(self, reqId, errorCode, errorString, advancedOrderRejectJson=""):
         print("Error {} {} {}".format(reqId, errorCode, errorString))
 
     def contractDetails(self, reqId, contractDetails):
