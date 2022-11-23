@@ -49,7 +49,7 @@ contract.symbol = "FB"
 contract.secType = "STK"
 contract.currency = "USD"
 contract.exchange = "SMART"
-# app.reqContractDetails(100, contract)
+app.reqContractDetails(100, contract)
 
 con_thread = threading.Thread(target=websocket_con(), daemon=True)
 con_thread.start()
