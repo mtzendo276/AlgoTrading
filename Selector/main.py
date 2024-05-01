@@ -57,3 +57,15 @@ if __name__ == '__main__':
             tickers_data.append(data)
 
     print('Data successfully imported')
+
+    recommendations = []
+    buys = []
+    sells = []
+    neutrals = []
+
+    # Iterate through each data in tickers_data
+    for data in tickers_data:
+        recommendations = data.get('RECOMMENDATION')
+        buy = data.get('BUY')
+        sell = data.get('SELL')
+        neutral = data.get('NEUTRAL')
