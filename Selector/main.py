@@ -65,7 +65,29 @@ if __name__ == '__main__':
 
     # Iterate through each data in tickers_data
     for data in tickers_data:
-        recommendations = data.get('RECOMMENDATION')
+        recommendation = data.get('RECOMMENDATION')
         buy = data.get('BUY')
         sell = data.get('SELL')
         neutral = data.get('NEUTRAL')
+
+        recommendations.append(recommendation)
+        buys.append(buy)
+        sells.append(sell)
+        neutrals.append(neutral)
+
+    data = {
+        'Ticker': tickers,
+        'Recommendations': recommendations,
+        'Buys': buys,
+        'Sells': sells,
+        'Neutrals': neutrals
+    }
+
+    df = pd.DataFrame(data)
+
+
+
+
+
+    
+
