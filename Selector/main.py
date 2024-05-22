@@ -85,9 +85,17 @@ if __name__ == '__main__':
 
     df = pd.DataFrame(data)
 
+    # Define the order of categories
+    order_categories = {
+        'STRONG_BUY': 5,
+        'BUY': 4,
+        'NEUTRAL': 3,
+        'SELL': 2,
+        'STRONG-SELL': 1
+    }
 
 
 
 
-    
+
 
