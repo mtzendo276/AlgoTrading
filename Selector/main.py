@@ -45,7 +45,7 @@ if __name__ == '__main__':
             tickers_data.append(data)
 
         except Exception as e:
-            # If no data is found for the ticker in NUYS, search in NASDAQ
+            # If no data is found for the ticker in NYSE, search in NASDAQ
             print(f"no data found for ticker { ticker } in NYSE. Searching in NASDAQ...")
             data = TA_Handler(
                 symbol=ticker,
@@ -93,6 +93,9 @@ if __name__ == '__main__':
         'SELL': 2,
         'STRONG-SELL': 1
     }
+
+    #assign a numerical value to each category in a new column "order"
+    df['Order'] = df
 
 
 
