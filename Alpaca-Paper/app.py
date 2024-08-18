@@ -1,10 +1,15 @@
 
 from alpaca.trading.client import TradingClient
+import json
+with open('API.json', 'r') as file:
+    apidata = json.load(file)
 
-TRADE_API_KEY=""
-TRADE_API_SECRET=""
+TRADE_API_KEY=apidata['TRADE_API_KEY']
+TRADE_API_SECRET=apidata['TRADE_API_SECRET']
 
-#### We use paper environment for this example ####
+print(TRADE_API_KEY)
+print(TRADE_API_SECRET)
+
 PAPER=True
 TRADE_API_URL="https://paper-api.alpaca.markets"
 TRADE_API_WSS=None
