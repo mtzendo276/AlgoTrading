@@ -43,29 +43,30 @@ if __name__ == '__main__':
     weeks = get_weeks(year)
     #
     ticker_symbols = ["SPY"]
-    # months = get_month_start_end_dates(year)
+    months = get_month_start_end_dates(year)
     for symbol in ticker_symbols:
         print(symbol)
 
-        # for month_start, month_end in months:
-        #     ticker = yf.Ticker(symbol)
-        #     historical_data = ticker.history(start=month_start, end=month_end)
-        #     monthly_change = (historical_data['Close'][-1] - historical_data['Close'][0]) / historical_data['Close'][
-        #         0] * 100
-        #     print(f"{month_start}, {month_end}, {round(monthly_change, 2)}")
-
-        for week_start, week_end, week_number in weeks:
-            # print("Week:", week_number)
-            # print("Week Start:", week_start.date().year, week_start.date().month, week_start.date().day)
-            # print("Week End:", week_end.date().year, week_end.date().month, week_end.date().day)
-            # print()
+        for month_start, month_end in months:
             ticker = yf.Ticker(symbol)
-            historical_data = ticker.history(start=week_start, end=week_end)
+            historical_data = ticker.history(start=month_start, end=month_end)
+            monthly_change = (historical_data['Close'][-1] - historical_data['Close'][0]) / historical_data['Close'][
+                0] * 100
+            print(f"{month_start}, {month_end}, {round(monthly_change, 2)}")
+            # print(f"{month_start}, {month_end}")
 
-            # Calculate the weekly change
-            weekly_change = (historical_data['Close'][-1] - historical_data['Close'][0]) / historical_data['Close'][0] * 100
-
-            # print(f"The weekly change of AAPL is {round(weekly_change, 2)}%.")
-            print(f"{week_start.date()}, {week_end.date()}, {week_number}, {round(weekly_change, 2)}")
+        # for week_start, week_end, week_number in weeks:
+        #     # print("Week:", week_number)
+        #     # print("Week Start:", week_start.date().year, week_start.date().month, week_start.date().day)
+        #     # print("Week End:", week_end.date().year, week_end.date().month, week_end.date().day)
+        #     # print()
+        #     ticker = yf.Ticker(symbol)
+        #     historical_data = ticker.history(start=week_start, end=week_end)
+        #
+        #     # Calculate the weekly change
+        #     weekly_change = (historical_data['Close'][-1] - historical_data['Close'][0]) / historical_data['Close'][0] * 100
+        #
+        #     # print(f"The weekly change of AAPL is {round(weekly_change, 2)}%.")
+        #     print(f"{week_start.date()}, {week_end.date()}, {week_number}, {round(weekly_change, 2)}")
 
 
